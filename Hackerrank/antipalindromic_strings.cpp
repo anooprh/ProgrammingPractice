@@ -10,9 +10,14 @@ int main(){
   uint64_t N,M,ans;
   while(T--){
     cin >> N >> M;
-    ans = M%MOD * (M-1)%MOD;
-    while(N-- - 2){
-      ans = (ans * M)%MOD; 
+    ans = M;
+    if(N > 1){
+      ans = (ans*(M-1))%MOD;
+    }
+    if(N > 2){
+      while(N-- - 2){
+	ans = (ans * (M-2))%MOD;
+      }
     }
     cout << ans << endl;
   }
